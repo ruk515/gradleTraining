@@ -21,25 +21,25 @@ public class AliExpress {
         ChromeDriver driver = new ChromeDriver();
 
         driver.get("https://www.aliexpress.com/");
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("pc_1455_24317_20200923")));
-        driver.switchTo().frame("pc_1455_24317_20200923").findElement(By.xpath("//*[@id=\"6216442440\"]/div/div/img")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//iframe[@name='pc_1455_24317_20200924']")));
+        driver.switchTo().frame("pc_1455_24317_20200924").findElement(By.xpath("//*[@id=\"6216442440\"]/div/div/img")).click();
         driver.switchTo().parentFrame();
         driver.findElement(By.xpath("//input[@name='SearchText']")).sendKeys("tattoo");
         driver.findElement(By.xpath("//input[@class='search-button']")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@role='button']"))).click();
+        driver.findElement(By.xpath("//input[@placeholder='min']")).click();
+        driver.findElement(By.xpath("//input[@placeholder='min']")).sendKeys("10");
+        driver.findElement(By.xpath("//input[@placeholder='max']")).sendKeys("20");
+        driver.findElement(By.xpath("//a[@class='ui-button narrow-go']")).click();
 
-//        driver.navigate().refresh();
-//        driver.findElement(By.xpath("//input[@placeholder='min']")).sendKeys("10");
-//        driver.findElement(By.xpath("//input[@placeholder='max']")).sendKeys("20");
 
-
-
-//        try {
-//            Thread.sleep(15000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//            driver.quit();
-//        }
+        try {
+            Thread.sleep(25000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            driver.quit();
+        }
     }
 
 }
