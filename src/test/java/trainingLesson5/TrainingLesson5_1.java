@@ -38,7 +38,6 @@ public class TrainingLesson5_1 {
         driver.findElement(By.xpath("//input[@class='b s12']")).click();
 
 
-
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
