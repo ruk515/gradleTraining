@@ -21,6 +21,7 @@ public class BonusTask {
         String driverPath = "/Users/uldisjekabsons/IdeaProjects/GradleTraining/src/test/resources/";
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
         ChromeDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
 
         driver.get("https://www.220.lv");
 

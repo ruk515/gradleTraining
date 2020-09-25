@@ -1,8 +1,8 @@
 package trainingLesson5;
 
+import commonHelpers.Common;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -14,16 +14,14 @@ import org.openqa.selenium.support.ui.Select;
  * •colour–Balta•Click submit
  */
 
-public class TrainingLesson5_1 {
+public class TrainingLesson5_1 extends Common {
     @Test
     public void findCar() {
-        String driverPath = "/Users/uldisjekabsons/IdeaProjects/GradleTraining/src/test/resources/";
-        System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
-        ChromeDriver driver = new ChromeDriver();
 
-        driver.get("https://www.ss.lv/lv");
+        setupDriver();
+
+        driver.get("https://www.ss.lv");
         driver.findElement(By.id("mtd_97")).click();
-
         driver.findElement(By.id("f_o_8_min")).sendKeys("6000");
         driver.findElement(By.id("f_o_8_max")).sendKeys("10000");
         Select carYear = new Select(driver.findElement(By.id("f_o_18_min")));
@@ -37,12 +35,6 @@ public class TrainingLesson5_1 {
 
         driver.findElement(By.xpath("//input[@class='b s12']")).click();
 
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        driver.quit();
+        killDriver();
     }
 }

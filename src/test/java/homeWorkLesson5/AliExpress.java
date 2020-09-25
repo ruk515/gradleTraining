@@ -22,8 +22,8 @@ public class AliExpress {
 
         driver.get("https://www.aliexpress.com/");
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//iframe[@name='pc_1455_24317_20200924']")));
-        driver.switchTo().frame("pc_1455_24317_20200924").findElement(By.xpath("//*[@id=\"6216442440\"]/div/div/img")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//iframe[@name='pc_1455_24317_20200925']")));
+        driver.switchTo().frame("pc_1455_24317_20200925").findElement(By.xpath("//*[@id=\"6216442440\"]/div/div/img")).click();
         driver.switchTo().parentFrame();
         driver.findElement(By.xpath("//input[@name='SearchText']")).sendKeys("tattoo");
         driver.findElement(By.xpath("//input[@class='search-button']")).click();
