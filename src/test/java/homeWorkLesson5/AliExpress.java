@@ -40,6 +40,7 @@ public class AliExpress {
             e.printStackTrace();
             driver.quit();
         }
+        driver.quit();
     }
 
 }
