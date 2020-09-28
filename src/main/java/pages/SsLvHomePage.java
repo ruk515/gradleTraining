@@ -6,13 +6,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SsLvHomePage extends Common {
 
-    private String minimalPrice = "6000";
-    private String maxPrice = "10000";
-    private String minimalCarYearValue = "2001";
-    private String maxEngineSize = "3.0";
-    private String carColor = "6318";
-
-
     private By dogCategory = By.id("mtd_300");
     private By carCategory = By.id("mtd_97");
     private By minimalPriceField = By.id("f_o_8_min");
@@ -26,18 +19,18 @@ public class SsLvHomePage extends Common {
         driver.findElement(searchButton).click();
     }
 
-    public void selectCarColor() {
+    public void selectCarColor(String carColorCode) {
         Select selectCarColor = new Select(driver.findElement(carColorField));
-        selectCarColor.selectByValue(carColor);
+        selectCarColor.selectByValue(carColorCode);
     }
 
-    public void selectMaxEngineSize() {
+    public void selectMaxEngineSize(String maxEngineSize) {
         Select engineSize = new Select(driver.findElement(maxEngineSizeField));
         engineSize.selectByVisibleText(maxEngineSize);
     }
 
 
-    public void selectMinimalCarYear() {
+    public void selectMinimalCarYear(String minimalCarYearValue) {
         Select select = new Select(driver.findElement(minimalCarYearField));
         select.selectByVisibleText(minimalCarYearValue);
     }
@@ -59,11 +52,11 @@ public class SsLvHomePage extends Common {
         driver.findElement(carCategory).click();
     }
 
-    public void enterMinimalCarPrice() {
+    public void enterMinimalCarPrice(String minimalPrice) {
         driver.findElement(minimalPriceField).sendKeys(minimalPrice);
     }
 
-    public void enterMaxCarPrice() {
+    public void enterMaxCarPrice(String maxPrice) {
         driver.findElement(maxPriceField).sendKeys(maxPrice);
     }
 }

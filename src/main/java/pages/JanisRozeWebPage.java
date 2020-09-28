@@ -3,25 +3,29 @@ package pages;
 import commonHelpers.Common;
 import org.openqa.selenium.By;
 import org.assertj.core.api.SoftAssertions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class JanisRozeWebPage extends Common {
 
-    private String correctLogInMail = "jekabsons.u@gmail.com";
-    private String correctPassword = "battyboy";
+    private By logInButton = By.id("send2");
+    private By username = By.name("login[username]");
+    private By password = By.name("login[password]");
+    private By failedLogInMessage = By.xpath("//li[@class='error-msg']");
 
     public void openJanisRozeWebPage() {
         driver.get("https://www.janisroze.lv/lv/");
     }
 
-    public void enterCorrectCredentials() {
+    public void enterCredentials(String logInMail, String logInPassword) {
         driver.get("https://www.janisroze.lv/lv_p/customer/account/login/");
-        driver.findElement(By.name("login[username]")).sendKeys(correctLogInMail);
-        driver.findElement(By.name("login[password]")).sendKeys(correctPassword);
+        driver.findElement(username).sendKeys(logInMail);
+        driver.findElement(password).sendKeys(logInPassword);
 
     }
 
     public void pressLogInButton() {
-        driver.findElement(By.id("send2")).click();
+        driver.findElement(logInButton).click();
     }
 
     public void verifyLogInSuccess() {
@@ -29,6 +33,11 @@ public class JanisRozeWebPage extends Common {
         String expectedUrl = "https://www.janisroze.lv/lv_p/customer/account/index/";
         SoftAssertions confirmLogIn = new SoftAssertions();
         confirmLogIn.assertThat(expectedUrl).isEqualTo(actualUrl);
+
+    }
+    public void verifyFailedLogIn(){
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(failedLogInMessage)).isDisplayed();
 
     }
 }

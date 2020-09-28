@@ -28,11 +28,19 @@ public class JRSuccessLogInTest extends Common {
         JanisRozeWebPage page = new JanisRozeWebPage();
 
         page.openJanisRozeWebPage();
-        page.enterCorrectCredentials();
+        page.enterCredentials("jekabsons.u@gmail.com", "battyboy");
         page.pressLogInButton();
         page.verifyLogInSuccess();
 
 
+    }
+    @Test
+    public void failedLogIn (){
+        JanisRozeWebPage page = new JanisRozeWebPage();
+        page.openJanisRozeWebPage();
+        page.enterCredentials("ihavenoemail@mail.com", "password");
+        page.pressLogInButton();
+        page.verifyFailedLogIn();
     }
 
     @After

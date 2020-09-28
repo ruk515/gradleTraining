@@ -31,11 +31,11 @@ public class FindCarTest extends Common {
 
         page.openSsLv();
         page.openCars();
-        page.enterMinimalCarPrice();
-        page.enterMaxCarPrice();
-        page.selectMinimalCarYear();
-        page.selectMaxEngineSize();
-        page.selectCarColor();
+        page.enterMinimalCarPrice("6000");
+        page.enterMaxCarPrice("10000");
+        page.selectMinimalCarYear("2001");
+        page.selectMaxEngineSize("3.0");
+        page.selectCarColor("6318");
         page.clickSearchButton();
 
 
