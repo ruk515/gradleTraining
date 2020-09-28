@@ -14,7 +14,7 @@ import pages.JanisRozeWebPage;
  * • Make login method generalized so it can be reused further in tests
  */
 
-public class JRSuccessLogInTest extends Common {
+public class JRLogInTest extends Common {
     Common common = new Common();
 
     @Before
@@ -28,7 +28,7 @@ public class JRSuccessLogInTest extends Common {
         JanisRozeWebPage page = new JanisRozeWebPage();
 
         page.openJanisRozeWebPage();
-        page.enterCredentials("jekabsons.u@gmail.com", "battyboy");
+        page.enterCredentials("**********", "**********");
         page.pressLogInButton();
         page.verifyLogInSuccess();
 
