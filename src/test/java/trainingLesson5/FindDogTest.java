@@ -4,7 +4,7 @@ import commonHelpers.Common;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import pages.HomePage;
+import pages.SsLvHomePage;
 
 public class FindDogTest extends Common {
 
@@ -18,8 +18,8 @@ public class FindDogTest extends Common {
     @Test
     public void findDogsByAge() {
 
-        HomePage page = new HomePage();
-        page.openHomePage();
+        SsLvHomePage page = new SsLvHomePage();
+        page.openSsLv();
         page.findDogs();
 
     }
