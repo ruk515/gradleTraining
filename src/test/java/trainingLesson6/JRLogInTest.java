@@ -43,6 +43,17 @@ public class JRLogInTest extends Common {
         page.verifyFailedLogIn();
     }
 
+    @Test
+    public void logInFromSocialMedia(){
+        JanisRozeWebPage page = new JanisRozeWebPage();
+        page.openJanisRozeWebPage();
+        page.openLogInPage();
+        page.selectSocialMedia();
+
+
+
+    }
+
     @After
     public void closeDriver() {
         common.killDriver();

@@ -12,6 +12,11 @@ public class JanisRozeWebPage extends Common {
     private By username = By.name("login[username]");
     private By password = By.name("login[password]");
     private By failedLogInMessage = By.xpath("//li[@class='error-msg']");
+    private By draugiemLogInButton = By.xpath("//*[@id=\"draugiem_login_button\"]/a");
+
+    public void selectSocialMedia(){
+        driver.findElement(draugiemLogInButton).click();
+    }
 
     public void openJanisRozeWebPage() {
         driver.get("https://www.janisroze.lv/lv/");
@@ -38,6 +43,8 @@ public class JanisRozeWebPage extends Common {
     public void verifyFailedLogIn(){
         WebDriverWait wait = new WebDriverWait(driver,5);
         wait.until(ExpectedConditions.visibilityOfElementLocated(failedLogInMessage)).isDisplayed();
-
+    }
+    public void openLogInPage(){
+        driver.get("https://www.janisroze.lv/lv_p/customer/account/login/");
     }
 }
